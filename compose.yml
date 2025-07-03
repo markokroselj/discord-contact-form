@@ -1,0 +1,12 @@
+services:
+  web:
+    image: markokroselj/discord-contact-form
+    env_file: .env
+    ports:
+      - 80:80
+    restart: unless-stopped
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /var/www/html
